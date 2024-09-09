@@ -13,7 +13,8 @@ def main():
     while True:
         walking_map.update_map()
         inputs.check_events()
-        x,y = walking_inputs.moving(x,y)
+        speed = walking_inputs.sprint()
+        x,y = walking_inputs.moving(x,y,speed)
         walking_map.use_player(x,y)
         pygame.display.update()
 

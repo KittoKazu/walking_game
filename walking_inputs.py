@@ -1,7 +1,6 @@
 import pygame
 import walking_map
 
-speed = 2
 pygame.key.set_repeat(1,1)
 
 def check_events():
@@ -10,7 +9,15 @@ def check_events():
             pygame.quit()
             exit()
 
-def moving(x,y):
+def sprint():
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LSHIFT]:
+        speed = 5
+    else:
+        speed = 2
+    return speed
+
+def moving(x,y,speed):
     key = pygame.key.get_pressed()
     if key[pygame.K_w]:
         y -= speed
